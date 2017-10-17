@@ -1,0 +1,159 @@
+<ion-header>
+    <ion-navbar color="primary">
+    <ion-title>
+      <ion-icon ios="ios-lock" md="md-lock"> Secured Home Automation</ion-icon>
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goToProfile()">
+        <ion-icon name="person"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+
+
+  <ion-toolbar no-border-top>
+    <ion-segment ng-model = "selected" [(ngModel)]="home">
+      <ion-segment-button value="door">
+        Door
+      </ion-segment-button>
+      <ion-segment-button value="lights">
+        Lights
+      </ion-segment-button>
+      
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+<ion-content>
+<ion-item>
+    <button ion-button large block round large color="secondary" 
+    (click)="UpdateUnlockDoor()" 
+    (click)="unlock()"  
+    (click)="UnlockToast()"
+    (click)="doorUnlock()" >
+        <ion-icon name="md-unlock"> Unlock</ion-icon>
+      </button>
+    
+      <button ion-button large block round large color="danger" 
+      (click)="UpdateLockDoor()" 
+      (click)="lock()" 
+      (click)="LockToast()"
+      (click)="doorLock()" > 
+        <ion-icon name="md-lock"> Lock</ion-icon>
+      </button>
+  </ion-item>
+</ion-content>
+
+ 
+
+
+<ion-content>
+  <div [ngSwitch]="home">
+    <ion-list *ngSwitchCase="'door'">
+      <ion-item>
+        <button ion-button large block round large color="secondary" 
+        (click)="UpdateUnlockDoor()" 
+        (click)="unlock()"  
+        (click)="UnlockToast()"
+        (click)="doorUnlock()" >
+            <ion-icon name="md-unlock"> Unlock</ion-icon>
+          </button>
+        
+          <button ion-button large block round large color="danger" 
+          (click)="UpdateLockDoor()" 
+          (click)="lock()" 
+          (click)="LockToast()"
+          (click)="doorLock()" > 
+            <ion-icon name="md-lock"> Lock</ion-icon>
+          </button>
+      </ion-item>
+
+      <!-- <ion-item padding>
+          <img width="100" height="100"src="../www/assets/img/lock.png">
+  
+      </ion-item> -->
+
+
+    </ion-list>
+    <ion-list *ngSwitchCase="'lights'">
+      <ion-item>
+
+          <ion-list>
+              Living Room
+              <!-- <ion-note item-end>Status: Off</ion-note> -->
+              <ion-item>
+  
+                <button ion-button large block item-end icon-left (click)="alert1On()" (click)="light3On()" (click)="light3OnUniversal()">
+                  <ion-icon name="md-sunny"></ion-icon>
+                  On
+                </button>
+                <button ion-button large outline item-end icon-right (click)="alert1Off()" (click)="light3Off()" (click)="light3OffUniversal()">
+                    <ion-icon name="md-sunny"></ion-icon>
+                    Off
+                  </button>
+              </ion-item>
+            </ion-list>
+
+            <ion-list>
+                Dinning Room
+                <ion-item>
+                  Dinning Room
+                  <button ion-button large block item-end icon-left (click)="alert2On()" (click)="light2On()" (click)="light2OnUniversal()">
+                      <ion-icon name="md-sunny"></ion-icon>
+                      On
+                    </button>
+                    <button ion-button large outline item-end icon-right (click)="alert2Off()" (click)="light2Off()" (click)="light2OffUniversal()">
+                        <ion-icon name="md-sunny"></ion-icon>
+                        Off
+                      </button>
+                </ion-item>
+              </ion-list>
+
+
+              <ion-list>
+                  Bed Room
+                  <ion-item>
+                    Bed Room
+                    <button ion-button large block item-end icon-left (click)="alert3On()" (click)="light4On()" (click)="light4OnUniversal()">
+                      <ion-icon name="md-sunny"></ion-icon>
+                      On
+                    </button>
+                    <button ion-button large outline item-end icon-right (click)="alert3Off()" (click)="light4Off()" (click)="light4OffUniversal()">
+                        <ion-icon name="md-sunny"></ion-icon>
+                        Off
+                      </button>
+                  </ion-item>
+                </ion-list>
+    
+                <ion-list>
+                    Comfort Room
+                    <ion-item>
+                      Comfort Room
+                      <button ion-button large block item-end icon-left (click)="alert4On()" (click)="light1On()" (click)="light1OnUniversal()">
+                          <ion-icon name="md-sunny"></ion-icon>
+                          On
+                        </button>
+                        <button ion-button large outline item-end icon-right (click)="alert4Off()" (click)="light1Off()" (click)="light1OffUniversal()">
+                            <ion-icon name="md-sunny"></ion-icon>
+                            Off
+                          </button>
+                    </ion-item>
+                  </ion-list>
+        
+      </ion-item>
+    </ion-list>
+
+    <!-- <ion-item padding>
+        <img width="100" height="100"src="../www/assets/img/lock.png">
+
+    </ion-item> -->
+
+    
+  </div>
+</ion-content>
+
+
+
+
+
+
